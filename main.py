@@ -1,5 +1,9 @@
 from tkinter import *
+from tkinter import messagebox
 import math
+import os
+
+
 # ---------------------------- CONSTANTS ------------------------------- #
 PINK = "#e2979c"
 RED = "#e7305b"
@@ -21,6 +25,8 @@ def reset_timer():
     label_check.config(text="")
     canvas.itemconfig(timer_text, text="00:00")
     reps=0
+
+
 # ---------------------------- TIMER MECHANISM ------------------------------- # 
 def start_timer():
     global reps
@@ -55,6 +61,9 @@ def count_down(count):
     else:
         window.attributes('-topmost', True)
         window.attributes('-topmost', False)
+        messagebox.showwarning(title="👀", message="Time is Over")
+        f = "sound.mp3"
+        os.system(f)
         marks = ""
         for _ in range(math.floor(reps/2)):
             marks += "✓"
